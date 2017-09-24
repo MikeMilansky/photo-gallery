@@ -2,13 +2,20 @@
 // (runtime-only or standalone) has been set in webpack.base.conf with an alias.
 import Vue from 'vue';
 import VueResource from 'vue-resource';
+import BootstrapVue from 'bootstrap-vue';
+import 'bootstrap/dist/css/bootstrap.css';
+import 'bootstrap-vue/dist/bootstrap-vue.css';
+
 import App from './App';
 import router from './router';
 import store from './store';
-import '../node_modules/bootstrap/scss/bootstrap.scss';
 
 Vue.use(VueResource);
-Vue.http.options.root = 'https://private-4298e9-photogallery2.apiary-mock.com/api';
+Vue.use(BootstrapVue);
+// Vue.http.options.root = 'https://private-4298e9-photogallery2.apiary-mock.com/api';
+Vue.http.options.root = 'http://localhost:3000';
+Vue.http.headers.common['Access-Control-Allow-Origin'] = '*';
+
 Vue.config.productionTip = false;
 
 /* eslint-disable no-new */

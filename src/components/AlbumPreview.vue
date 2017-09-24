@@ -13,6 +13,7 @@
 
 <script>
   export default {
+    name: 'album_preview',
     props: ['album']
   };
 </script>

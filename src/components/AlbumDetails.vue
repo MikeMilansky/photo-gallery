@@ -14,6 +14,7 @@
   import { mapGetters } from 'vuex';
 
   export default {
+    name: 'album_details',
     created() {
       this.$store.dispatch('getAlbumDetails', { albumId: this.$route.params.id });
     },
