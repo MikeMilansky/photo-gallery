@@ -5,7 +5,7 @@
         <h2>{{album.title}}</h2>
       </div>
     </div>
-    <photo :photo="photo" v-for="photo in album.photos"></photo>
+    <photo :photo="image" v-for="image in album.images"></photo>
   </div>
 </template>
 

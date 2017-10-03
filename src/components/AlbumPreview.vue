@@ -2,7 +2,7 @@
   <div class="col-4">
     <router-link :to="{ name: 'album_details', params: { id: album.id }}">
       <div class="card card-album">
-        <img class="card-img-top" v-bind:src="album.img">
+        <img class="card-img-top" v-bind:src="album.cover">
         <div class="card-block">
           <div class="card-title">{{album.title}}</div>
         </div>

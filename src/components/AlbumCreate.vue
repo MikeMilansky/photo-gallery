@@ -17,19 +17,22 @@
                          placeholder="Введите описание альбома">
         </b-form-textarea>
       </b-form-group>
+      <image-uploader v-model="form.images"></image-uploader>
       <b-button type="submit" variant="primary">Создать</b-button>
     </b-form>
   </div>
 </template>
 
 <script>
+  import ImageUploader from './ImageUploader.vue';
   export default {
     name: 'album_create',
     data() {
       return {
         form: {
           title: '',
-          description: ''
+          description: '',
+          images: []
         }
       };
     },
@@ -38,10 +41,12 @@
         evt.preventDefault();
         this.$store.dispatch('createNewAlbum', this.form);
       }
+    },
+    components: {
+      'image-uploader': ImageUploader
     }
   };
 </script>
-
-<!-- Add "scoped" attribute to limit CSS to this component only -->
+ly -->
 <style scoped>
 </style>

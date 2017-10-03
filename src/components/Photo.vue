@@ -1,14 +1,12 @@
 <template>
   <div class="row">
     <div class="col">
-      <router-link :to="{ name: 'album_details', params: { id: photo.id }}">
-        <div class="card card-album">
-          <img class="card-img-top" v-bind:src="photo.img['L']['href']">
-          <div class="card-block">
-            <div class="card-title">{{photo.title}}</div>
-          </div>
-        </div>
-      </router-link>
+      <div class="card card-img">
+        <img class="card-img-top" v-bind:src="photo.url">
+        <!--<div class="card-block">-->
+          <!--<div class="card-title">{{photo.title}}</div>-->
+        <!--</div>-->
+      </div>
     </div>
   </div>
 </template>
@@ -31,9 +29,9 @@
     background-color: #000;
     opacity: 0.7;
   }
-  .card-album {
-    cursor: pointer;
+  .card-img {
     min-height: 120px;
+    margin-bottom: 10px;
   }
   .card-title {
     z-index: 1000;
