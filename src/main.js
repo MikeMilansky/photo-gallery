@@ -3,6 +3,8 @@
 import Vue from 'vue';
 import VueResource from 'vue-resource';
 import BootstrapVue from 'bootstrap-vue';
+import VeeValidate from 'vee-validate';
+
 import 'bootstrap/dist/css/bootstrap.css';
 import 'bootstrap-vue/dist/bootstrap-vue.css';
 import 'font-awesome/css/font-awesome.css';
@@ -11,6 +13,7 @@ import App from './App';
 import router from './router';
 import store from './store';
 
+Vue.use(VeeValidate);
 Vue.use(VueResource);
 Vue.use(BootstrapVue);
 // Vue.http.options.root = 'https://private-4298e9-photogallery2.apiary-mock.com/api';

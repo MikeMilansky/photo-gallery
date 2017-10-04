@@ -1,19 +1,13 @@
 import Vue from 'vue';
 import Router from 'vue-router';
-import Hello from '@/components/Hello';
-import Home from '@/components/Home';
-import AlbumDetails from '@/components/AlbumDetails';
-import AlbumCreate from '@/components/AlbumCreate';
+import Home from '@/containers/Home';
+import AlbumDetails from '@/containers/AlbumDetails';
+import AlbumCreate from '@/containers/AlbumCreate';
 
 Vue.use(Router);
 
 export default new Router({
   routes: [
-    {
-      path: '/',
-      name: 'hello',
-      component: Hello
-    },
     {
       path: '/home',
       name: 'home',

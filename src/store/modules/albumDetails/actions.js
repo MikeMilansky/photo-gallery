@@ -20,7 +20,7 @@ export const actions = {
       }))
     };
 
-    Vue.http.post(`albums`, albumDto).then((res) => {
+    return Vue.http.post(`albums`, albumDto).then((res) => {
       console.log(res.data);
     });
   }

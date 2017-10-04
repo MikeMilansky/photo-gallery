@@ -24,22 +24,12 @@
 </template>
 
 <script>
-  import * as remove from 'lodash/remove.js';
-  import { upload, deleteImage } from '../services/images';
+  import { mapGetters } from 'vuex';
 
   export default {
     name: 'image-uploader',
-    props: ['value'],
     data() {
       return {
-        uploadedFiles: [
-//          {url: "http://res.cloudinary.com/reshetnikova-photogallery/image/upload/v1506973196/bsyqshnuhy4sqpgft30q.png", public_id: "bsyqshnuhy4sqpgft30q" },
-//          {url: "http://res.cloudinary.com/reshetnikova-photogallery/image/upload/v1506870413/yevdpp9wmtnpj0m27ze9.jpg"},
-//          {url: "http://res.cloudinary.com/reshetnikova-photogallery/image/upload/v1506870413/yevdpp9wmtnpj0m27ze9.jpg"},
-//          {url: "http://res.cloudinary.com/reshetnikova-photogallery/image/upload/v1506870413/yevdpp9wmtnpj0m27ze9.jpg"},
-//          {url: "http://res.cloudinary.com/reshetnikova-photogallery/image/upload/v1506870413/yevdpp9wmtnpj0m27ze9.jpg"},
-//          {url: "http://res.cloudinary.com/reshetnikova-photogallery/image/upload/v1506870413/yevdpp9wmtnpj0m27ze9.jpg"}
-        ],
         isLoading: false,
         uploadError: null,
         currentStatus: null,
@@ -47,6 +37,9 @@
       };
     },
     computed: {
+      ...mapGetters({
+        'uploadedFiles': 'images'
+      })
     },
     methods: {
       reset() {
@@ -55,29 +48,13 @@
         this.uploadError = null;
       },
       deleteImage(imageToDelete) {
-        deleteImage(imageToDelete.public_id).then(() => {
-          remove(this.uploadedFiles, (image) => {
-            debugger;
-            return image.public_id === imageToDelete.public_id;
-          });
-          this.$emit('input', this.uploadedFiles);
-        });
+        this.$store.dispatch('deleteImage', imageToDelete);
       },
       save(formData) {
-        // upload data to the server
         this.isLoading = true;
-
-        upload(formData)
-          .then(res => {
-            console.log(res);
-            this.uploadedFiles = this.uploadedFiles.concat([].concat(res));
-            this.$emit('input', this.uploadedFiles);
-            this.isLoading = false;
-          })
-          .catch(err => {
-            this.uploadError = err.response; // TODO: show toster with error
-            this.isLoading = false;
-          });
+        this.$store.dispatch('uploadImages', formData).then(() => {
+          this.isLoading = false;
+        });
       },
       filesChange(fieldName, fileList) {
         // handle file changes
@@ -124,7 +101,7 @@
     cursor: pointer;
   }
 
-  .icon-remove:hover {
+  .image-container:hover .icon-remove {
     color: #ed4b4a
   }
 

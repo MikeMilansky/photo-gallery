@@ -6,5 +6,10 @@ export const actions = {
     Vue.http.get('albums').then(response => {
       commit(types.RECEIVE_ALBUMS, response.body);
     });
+  },
+  deleteAlbum({ commit }, album) {
+    Vue.http.delete(`albums/${album.id}`).then(() => {
+      commit(types.DELETE_ALBUM, album);
+    });
   }
 };
