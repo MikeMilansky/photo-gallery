@@ -3,7 +3,7 @@
     <form enctype="multipart/form-data" novalidate>
       <h2>Загрузить фотографии</h2>
       <div class="uploaded-images" v-if="!!uploadedFiles.length">
-        <div v-for="image in uploadedFiles" class="image-container" :key="image.public_id">
+        <div v-for="image in uploadedFiles" class="image-container" :key="image.publicId">
           <img :src="image.url" class="img-responsive img-thumbnail" :alt="image.originalName">
           <i class="fa fa-times icon-remove" aria-hidden="true" @click="deleteImage(image)"></i>
         </div>
@@ -85,11 +85,12 @@
   .uploaded-images {
     display: flex;
     flex-wrap: wrap;
-    margin-bottom: 10px;
+    margin: -5px -5px 10px -5px;
   }
 
   .image-container {
     max-width: 370px;
+    margin: 5px;
     position: relative;
   }
 

@@ -22,6 +22,11 @@ export default new Router({
       path: '/album_create',
       name: 'album_create',
       component: AlbumCreate
+    },
+    {
+      path: '/album_edit/:id',
+      name: 'album_edit',
+      component: AlbumCreate
     }
   ]
 });

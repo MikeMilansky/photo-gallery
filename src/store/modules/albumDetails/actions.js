@@ -1,11 +1,11 @@
 import * as types from './mutationTypes';
 import * as map from 'lodash/map.js';
-import Vue from 'vue';
+import { getAlbumDetails, createNewAlbum } from '../../../services/albums';
 
 export const actions = {
   getAlbumDetails({ commit }, { albumId }) {
-    Vue.http.get(`albums/${albumId}`).then(response => {
-      commit(types.RECEIVE_ALBUM_DETAILS, response.body);
+    getAlbumDetails(albumId).then((response) => {
+      commit(types.RECEIVE_ALBUM_DETAILS, response);
     });
   },
   createNewAlbum({ commit }, album) {
@@ -20,8 +20,6 @@ export const actions = {
       }))
     };
 
-    return Vue.http.post(`albums`, albumDto).then((res) => {
-      console.log(res.data);
-    });
+    return createNewAlbum(albumDto);
   }
 };

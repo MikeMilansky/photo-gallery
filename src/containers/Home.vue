@@ -6,7 +6,7 @@
       </div>
     </div>
     <div class="row">
-      <album-preview v-for="album in albums" :album="album" :key="image.id"></album-preview>
+      <album-preview v-for="album in albums" :album="album" :key="album.id"></album-preview>
       <div v-if="!albums.length" class="no-data">
         <div>Пока еще не создано ни одного альбома :(</div>
         <div><router-link :to="{ name: 'album_create' }">Исправить!</router-link></div>

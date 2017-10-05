@@ -4,6 +4,11 @@
       <div class="col">
         <h2>{{album.title}}</h2>
       </div>
+      <div class="col text-right">
+        <router-link :to="{ name: 'album_edit', params: { id: album.id }}">
+          Редактировать
+        </router-link>
+      </div>
     </div>
     <photo :photo="image" v-for="image in album.images" :key="image.publicId"></photo>
   </div>

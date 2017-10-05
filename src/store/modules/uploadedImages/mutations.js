@@ -10,5 +10,8 @@ export const mutations = {
   },
   [types.RESET_UPLOADED_IMAGES](state) {
     state.images = [];
+  },
+  [types.SET_IMAGES](state, images) {
+    state.images = images;
   }
 };
