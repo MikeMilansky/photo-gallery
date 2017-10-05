@@ -6,7 +6,7 @@
       </div>
     </div>
     <div class="row">
-      <album-preview v-for="album in albums" :album="album"></album-preview>
+      <album-preview v-for="album in albums" :album="album" :key="image.id"></album-preview>
       <div v-if="!albums.length" class="no-data">
         <div>Пока еще не создано ни одного альбома :(</div>
         <div><router-link :to="{ name: 'album_create' }">Исправить!</router-link></div>
@@ -17,7 +17,7 @@
 
 <script>
   import AlbumPreview from '@/components/AlbumPreview';
-  import { mapGetters } from 'Vuex';
+  import { mapGetters } from 'vuex';
 
   export default {
     name: 'home',
