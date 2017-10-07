@@ -7,4 +7,7 @@ function getAlbumDetails(albumId) {
 function createNewAlbum(albumDto) {
   return Vue.http.post(`albums`, albumDto).then(() => {});
 }
-export { getAlbumDetails, createNewAlbum };
+function updateAlbum(albumDto) {
+  return Vue.http.put(`albums/${albumDto.id}`, albumDto).then(() => {});
+}
+export { getAlbumDetails, createNewAlbum, updateAlbum };

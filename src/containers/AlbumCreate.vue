@@ -34,7 +34,7 @@
   export default {
     name: 'album_create',
     created() {
-      this.$store.dispatch('setImages', []);
+      this.$store.dispatch('resetUploadedImages');
     },
     data() {
       return {
@@ -48,13 +48,21 @@
     methods: {
       onSubmit(evt) {
         evt.preventDefault();
-        this.$store.dispatch('createNewAlbum', Object.assign(this.form, this.$store.state.uploadedImages )).then(() => {
-          this.$store.dispatch('resetUploadedImages');
-          this.$router.push('/home');
-        });
+        if (!this.isEditMode) {
+          this.$store.dispatch('createNewAlbum', Object.assign(this.form, this.$store.state.uploadedImages)).then(() => {
+            this.$store.dispatch('resetUploadedImages');
+            this.$router.push('/home');
+          });
+        } else {
+          this.$store.dispatch('updateAlbum', Object.assign(this.form, this.$store.state.uploadedImages)).then(() => {
+            this.$store.dispatch('resetUploadedImages');
+            this.$router.push('/home');
+          });
+        }
       },
       setData(data) {
         this.form = {
+          id: data._id,
           title: data.title,
           description: data.description
         };

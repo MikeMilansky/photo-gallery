@@ -18,7 +18,6 @@
     props: ['album'],
     methods: {
       deleteAlbum(event) {
-        debugger;
         event.preventDefault();
         event.stopPropagation();
         this.$store.dispatch('deleteAlbum', this.album);
@@ -32,7 +31,7 @@
   .album-container {
     padding: 15px;
   }
-  
+
   .card-block {
     position: absolute;
     bottom: 0;
