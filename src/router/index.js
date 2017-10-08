@@ -3,6 +3,7 @@ import Router from 'vue-router';
 import Home from '@/containers/Home';
 import AlbumDetails from '@/containers/AlbumDetails';
 import AlbumCreate from '@/containers/AlbumCreate';
+import About from '@/containers/About';
 
 Vue.use(Router);
 
@@ -27,6 +28,11 @@ export default new Router({
       path: '/album_edit/:id',
       name: 'album_edit',
       component: AlbumCreate
+    },
+    {
+      path: '/about',
+      name: 'about',
+      component: About
     }
   ]
 });

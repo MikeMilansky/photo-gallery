@@ -8,8 +8,14 @@
     <b-collapse is-nav id="nav_collapse">
 
       <b-nav is-nav-bar>
+        <b-nav-item href="#/home">
+          Главная
+        </b-nav-item>
         <b-nav-item href="#/album_create">
           Создать альбом
+        </b-nav-item>
+        <b-nav-item href="#/about">
+          О сайте
         </b-nav-item>
       </b-nav>
 

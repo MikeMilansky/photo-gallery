@@ -11,14 +11,8 @@
                       v-validate.initial="'required'"
         ></b-form-input>
       </b-form-group>
-      <b-form-group label-for="description" label="Описание альбома:">
-        <!--<b-form-textarea id="description"-->
-                         <!--v-model="form.description"-->
-                         <!--:rows="3"-->
-                         <!--:max-rows="6"-->
-                         <!--placeholder="Введите описание альбома">-->
-        <!--</b-form-textarea>-->
-        <quill-editor v-model="form.description">
+      <b-form-group class="description" label-for="description" label="Описание альбома:">
+        <quill-editor v-model="form.description" :options="editorOptions">
         </quill-editor>
       </b-form-group>
       <image-uploader></image-uploader>
@@ -44,7 +38,10 @@
           title: '',
           description: ''
         },
-        isEditMode: false
+        isEditMode: false,
+        editorOptions: {
+          placeholder: 'Введи описание альбома...'
+        }
       };
     },
     methods: {
@@ -89,9 +86,12 @@
     }
   };
 </script>
-<style scoped>
+<style>
   .error-box {
     color: #dc3545;
     margin-bottom: 10px;
+  }
+  .ql-container .ql-editor {
+    min-height: 250px;
   }
 </style>
