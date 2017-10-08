@@ -4,18 +4,21 @@
     <router-view></router-view>
     <page-footer></page-footer>
     <v-dialog/>
+    <loading-block></loading-block>
   </div>
 </template>
 
 <script>
   import Navbar from './components/Navbar.vue';
   import Footer from './components/Footer.vue';
+  import LoadingBlock from './components/LoadingBlock.vue';
 
 export default {
   name: 'app',
   components: {
     'navbar': Navbar,
-    'page-footer': Footer
+    'page-footer': Footer,
+    'loading-block': LoadingBlock
   }
 };
 </script>

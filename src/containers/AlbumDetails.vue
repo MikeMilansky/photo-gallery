@@ -4,9 +4,9 @@
       <div class="col-10">
         <h2>{{album.title}}</h2>
       </div>
-      <div class="col-2 text-right">
+      <div class="col-2 edit-button">
         <router-link :to="{ name: 'album_edit', params: { id: album.id }}">
-          Редактировать
+          <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
         </router-link>
       </div>
     </div>
@@ -25,7 +25,10 @@
   export default {
     name: 'album_details',
     created() {
-      this.$store.dispatch('getAlbumDetails', { albumId: this.$route.params.id });
+      this.$store.dispatch('changeLoadingState', true);
+      this.$store.dispatch('getAlbumDetails', { albumId: this.$route.params.id }).then(() => {
+        this.$store.dispatch('changeLoadingState', false);
+      });
     },
     computed: {
       ...mapGetters(['album'])
@@ -40,5 +43,9 @@
 <style scoped>
   .section {
     margin-bottom: 10px;
+  }
+  .edit-button {
+    padding-top: 10px;
+    text-align: right;
   }
 </style>

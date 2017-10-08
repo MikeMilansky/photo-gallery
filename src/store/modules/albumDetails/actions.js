@@ -4,7 +4,7 @@ import { getAlbumDetails, createNewAlbum, updateAlbum } from '../../../services/
 
 export const actions = {
   getAlbumDetails({ commit }, { albumId }) {
-    getAlbumDetails(albumId).then((response) => {
+    return getAlbumDetails(albumId).then((response) => {
       commit(types.RECEIVE_ALBUM_DETAILS, response);
     });
   },

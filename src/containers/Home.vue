@@ -7,7 +7,7 @@
     </div>
     <div class="row">
       <album-preview v-for="album in albums" :album="album" :key="album.id"></album-preview>
-      <div v-if="!albums.length" class="no-data">
+      <div v-if="!albums.length && !isLoading" class="no-data">
         <div>Пока еще не создано ни одного альбома :(</div>
         <div><router-link :to="{ name: 'album_create' }">Исправить!</router-link></div>
       </div>
@@ -21,8 +21,17 @@
 
   export default {
     name: 'home',
+    data() {
+      return {
+        isLoading: true
+      };
+    },
     created() {
-      this.$store.dispatch('getAllAlbums');
+      this.$store.dispatch('changeLoadingState', true);
+      this.$store.dispatch('getAllAlbums').then(() => {
+        this.$store.dispatch('changeLoadingState', false);
+        this.isLoading = false;
+      });
     },
     computed: {
       ...mapGetters([
