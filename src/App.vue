@@ -1,5 +1,5 @@
 <template>
-  <div id="app" class="container">
+  <div id="app" class="container container-main">
     <navbar></navbar>
     <router-view></router-view>
     <page-footer></page-footer>
@@ -20,7 +20,7 @@ export default {
 </script>
 
 <style>
-  .container {
+  .container-main {
     padding-bottom: 50px;
   }
 </style>

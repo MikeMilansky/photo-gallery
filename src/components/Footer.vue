@@ -1,6 +1,8 @@
 <template>
   <nav class="navbar fixed-bottom navbar-light bg-light">
-    Фотогалерея - 2017
+    <div class="container">
+      Фотогалерея - 2017
+    </div>
   </nav>
 </template>
 <script>

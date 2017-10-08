@@ -12,12 +12,14 @@
         ></b-form-input>
       </b-form-group>
       <b-form-group label-for="description" label="Описание альбома:">
-        <b-form-textarea id="description"
-                         v-model="form.description"
-                         :rows="3"
-                         :max-rows="6"
-                         placeholder="Введите описание альбома">
-        </b-form-textarea>
+        <!--<b-form-textarea id="description"-->
+                         <!--v-model="form.description"-->
+                         <!--:rows="3"-->
+                         <!--:max-rows="6"-->
+                         <!--placeholder="Введите описание альбома">-->
+        <!--</b-form-textarea>-->
+        <quill-editor v-model="form.description">
+        </quill-editor>
       </b-form-group>
       <image-uploader></image-uploader>
       <div class="error-box" v-show="!images.length">Загрузи хотя бы одну фотографию</div>

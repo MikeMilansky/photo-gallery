@@ -1,5 +1,5 @@
 <template>
-  <div class="col-4 album-container">
+  <div class="col-xs-3 col-sm-4 album-container">
     <router-link :to="{ name: 'album_details', params: { id: album.id }}">
       <div class="card card-album">
         <img class="card-img-top" v-bind:src="album.cover.url">
