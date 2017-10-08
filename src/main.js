@@ -5,6 +5,7 @@ import VueResource from 'vue-resource';
 import BootstrapVue from 'bootstrap-vue';
 import VeeValidate from 'vee-validate';
 import VueQuillEditor from 'vue-quill-editor';
+import VModal from 'vue-js-modal';
 
 import 'bootstrap/dist/css/bootstrap.css';
 import 'bootstrap-vue/dist/bootstrap-vue.css';
@@ -18,6 +19,7 @@ Vue.use(VeeValidate);
 Vue.use(VueResource);
 Vue.use(BootstrapVue);
 Vue.use(VueQuillEditor);
+Vue.use(VModal, { dialog: true });
 
 // Vue.http.options.root = 'https://private-4298e9-photogallery2.apiary-mock.com/api';
 // Vue.http.options.root = 'http://localhost:3000';

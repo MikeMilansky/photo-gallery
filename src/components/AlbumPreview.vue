@@ -20,7 +20,21 @@
       deleteAlbum(event) {
         event.preventDefault();
         event.stopPropagation();
-        this.$store.dispatch('deleteAlbum', this.album);
+
+        this.$modal.show('dialog', {
+          title: 'Удаление альбома',
+          text: `Подтвердите удаление альбома: ${this.album.title}`,
+          buttons: [
+            {
+              title: 'Удалить', handler: () => {
+              this.$store.dispatch('deleteAlbum', this.album).then(() => {
+                this.$modal.hide('dialog');
+              });
+            }
+            },
+            { title: 'Отменить' }
+          ]
+        });
       }
     }
   };

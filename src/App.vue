@@ -3,6 +3,7 @@
     <navbar></navbar>
     <router-view></router-view>
     <page-footer></page-footer>
+    <v-dialog/>
   </div>
 </template>
 

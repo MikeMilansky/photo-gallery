@@ -8,7 +8,7 @@ export const actions = {
     });
   },
   deleteAlbum({ commit }, album) {
-    Vue.http.delete(`albums/${album.id}`).then(() => {
+    return Vue.http.delete(`albums/${album.id}`).then(() => {
       commit(types.DELETE_ALBUM, album);
     });
   }
