@@ -26,5 +26,9 @@ export default {
 <style>
   .container-main {
     padding-bottom: 50px;
+    background-color: #fff;
+  }
+  body {
+    background: url('./assets/skelatal_weave.png') repeat;
   }
 </style>

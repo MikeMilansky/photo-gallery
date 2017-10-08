@@ -1,5 +1,5 @@
 <template>
-  <b-navbar toggleable="md" type="dark" variant="info" class="sticky-top">
+  <b-navbar toggleable="md" type="dark" variant="info" class="sticky-top row">
 
     <b-nav-toggle target="nav_collapse"></b-nav-toggle>
 
