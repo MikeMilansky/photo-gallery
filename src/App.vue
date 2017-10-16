@@ -12,6 +12,7 @@
   import Navbar from './components/Navbar.vue';
   import Footer from './components/Footer.vue';
   import LoadingBlock from './components/LoadingBlock.vue';
+  import { appConstants } from "./app.constants";
 
 export default {
   name: 'app',
@@ -19,6 +20,10 @@ export default {
     'navbar': Navbar,
     'page-footer': Footer,
     'loading-block': LoadingBlock
+  },
+  created() {
+    this.$store.dispatch('setToken', localStorage.getItem(appConstants.authTokenKey));
+    this.$store.dispatch('getUserInfo');
   }
 };
 </script>

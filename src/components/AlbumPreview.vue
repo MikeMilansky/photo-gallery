@@ -6,16 +6,21 @@
         <div class="card-block">
           <div class="card-title">{{album.title}}</div>
         </div>
-        <i class="fa fa-times icon-remove" aria-hidden="true" @click="deleteAlbum($event)"></i>
+        <i class="fa fa-times icon-remove" aria-hidden="true" @click="deleteAlbum($event)" v-if="isAuthorized"></i>
       </div>
     </router-link>
   </div>
 </template>
 
 <script>
+  import { mapGetters } from 'vuex';
+
   export default {
     name: 'album_preview',
     props: ['album'],
+    ...mapGetters([
+      'isAuthorized'
+    ]),
     methods: {
       deleteAlbum(event) {
         event.preventDefault();

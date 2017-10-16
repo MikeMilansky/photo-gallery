@@ -2,6 +2,7 @@
 // (runtime-only or standalone) has been set in webpack.base.conf with an alias.
 import Vue from 'vue';
 import VueResource from 'vue-resource';
+// import { setAuthHeader } from './app.interceptors';
 import BootstrapVue from 'bootstrap-vue';
 import VeeValidate from 'vee-validate';
 import VueQuillEditor from 'vue-quill-editor';
@@ -17,14 +18,14 @@ import store from './store';
 
 Vue.use(VeeValidate);
 Vue.use(VueResource);
+// setAuthHeader();
 Vue.use(BootstrapVue);
 Vue.use(VueQuillEditor);
 Vue.use(VModal, { dialog: true });
 
-// Vue.http.options.root = 'https://private-4298e9-photogallery2.apiary-mock.com/api';
-// Vue.http.options.root = 'http://localhost:3000';
-Vue.http.options.root = 'https://photo-gallery-be.herokuapp.com';
-Vue.http.headers.common['Access-Control-Allow-Origin'] = '*';
+Vue.http.options.root = 'http://localhost:3000';
+// Vue.http.options.root = 'https://photo-gallery-be.herokuapp.com';
+// Vue.http.headers.common['Access-Control-Allow-Origin'] = '*';
 
 Vue.config.productionTip = false;
 

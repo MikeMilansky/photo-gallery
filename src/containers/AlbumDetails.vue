@@ -4,7 +4,7 @@
       <div class="col-10">
         <h2>{{album.title}}</h2>
       </div>
-      <div class="col-2 edit-button">
+      <div class="col-2 edit-button" v-if="isAuthorized">
         <router-link :to="{ name: 'album_edit', params: { id: album.id }}">
           <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
         </router-link>
@@ -31,7 +31,7 @@
       });
     },
     computed: {
-      ...mapGetters(['album'])
+      ...mapGetters(['album', 'isAuthorized'])
     },
     components: {
       photo: Photo

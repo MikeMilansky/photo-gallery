@@ -4,6 +4,7 @@ import Home from '@/containers/Home';
 import AlbumDetails from '@/containers/AlbumDetails';
 import AlbumCreate from '@/containers/AlbumCreate';
 import About from '@/containers/About';
+import Login from '@/containers/Login';
 
 Vue.use(Router);
 
@@ -37,6 +38,11 @@ export default new Router({
       path: '/about',
       name: 'about',
       component: About
+    },
+    {
+      path: '/login',
+      name: 'login',
+      component: Login
     }
   ]
 });

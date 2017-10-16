@@ -4,6 +4,7 @@ import albums from './modules/albums';
 import albumDetails from './modules/albumDetails';
 import uploadedImages from './modules/uploadedImages';
 import loadingBlock from './modules/loadingBlock';
+import authentication from './modules/authentication';
 
 Vue.use(Vuex);
 
@@ -12,7 +13,8 @@ export default new Vuex.Store({
     albums,
     albumDetails,
     uploadedImages,
-    loadingBlock
+    loadingBlock,
+    authentication
   },
   strict: true,
   plugins: []
