@@ -18,9 +18,11 @@
   export default {
     name: 'album_preview',
     props: ['album'],
-    ...mapGetters([
-      'isAuthorized'
-    ]),
+    computed: {
+      ...mapGetters([
+        'isAuthorized'
+      ])
+    },
     methods: {
       deleteAlbum(event) {
         event.preventDefault();
