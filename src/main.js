@@ -23,8 +23,8 @@ Vue.use(BootstrapVue);
 Vue.use(VueQuillEditor);
 Vue.use(VModal, { dialog: true });
 
-Vue.http.options.root = 'http://localhost:3000';
-// Vue.http.options.root = 'https://photo-gallery-be.herokuapp.com';
+// Vue.http.options.root = 'http://localhost:3000';
+Vue.http.options.root = 'https://photo-gallery-be.herokuapp.com';
 // Vue.http.headers.common['Access-Control-Allow-Origin'] = '*';
 
 Vue.config.productionTip = false;

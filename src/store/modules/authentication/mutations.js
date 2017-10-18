@@ -7,6 +7,7 @@ export const mutations = {
   [types.AUTHENTICATION_LOGOFF](state) {
     state.token = null;
     state.userInfo = null;
+    state.isAuthorized = false;
   },
   [types.SET_AUTHORIZATION](state, isAuthorized) {
     state.isAuthorized = isAuthorized;

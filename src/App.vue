@@ -29,6 +29,9 @@ export default {
 </script>
 
 <style>
+  html, body, .container-main {
+    height: 100%;
+  }
   .container-main {
     padding-bottom: 50px;
     background-color: #fff;
