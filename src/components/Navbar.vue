@@ -45,7 +45,6 @@
     methods: {
       logOff() {
         this.$store.dispatch('logOff');
-        this.$store.dispatch('logOff');
       }
     },
     computed: {
